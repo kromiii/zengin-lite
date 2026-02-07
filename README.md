@@ -27,81 +27,29 @@ $ gem install zengin_lite
 
 ## Usage
 
-### Find bank by code
-
 ```ruby
 require 'zengin_lite'
 
-bank = ZenginLite.bank("0001")
-# => #<ZenginLite::Bank code="0001", name="みずほ銀行", kana="ミズホ", hira="みずほ", roma="mizuho">
+# Find bank and branch
+bank = ZenginLite.bank("0001") # => #<ZenginLite::Bank code="0001" name="みずほ銀行" ...>
+branch = bank.branch("001")    # => #<ZenginLite::Branch code="001" name="東京営業部" ...>
 
-puts bank.name  # => "みずほ銀行"
-puts bank.kana  # => "ミズホ"
-puts bank.roma  # => "mizuho"
-```
-
-### Search banks by name
-
-```ruby
+# Search banks
 banks = ZenginLite.search_banks(name: "三井")
-# => [#<ZenginLite::Bank ...>, ...]
 
-banks.each do |bank|
-  puts "#{bank.code}: #{bank.name}"
-end
+# Check existence (returns nil if not found)
+ZenginLite.bank("9999") # => nil
 ```
 
-### Find branch
+For more detailed API documentation, please refer to the YARD documentation.
 
-```ruby
-# Get branch through bank
-bank = ZenginLite.bank("0001")
-branch = bank.branch("001")
-# => #<ZenginLite::Branch code="001", name="東京営業部", ...>
-
-# Or directly
-branch = ZenginLite.branch(bank_code: "0001", branch_code: "001")
-puts branch.name  # => "東京営業部"
-puts branch.bank.name  # => "みずほ銀行"
+```bash
+# Generate and view documentation locally
+$ bundle exec yard doc
+$ open doc/index.html
 ```
 
-### Check existence
-
-If a bank or branch does not exist, `nil` is returned.
-
-```ruby
-# Bank not found
-bank = ZenginLite.bank("9999")
-if bank.nil?
-  puts "Bank not found"
-end
-
-# Branch not found
-branch = ZenginLite.branch(bank_code: "0001", branch_code: "999")
-if branch.nil?
-  puts "Branch not found"
-end
-```
-
-### List all branches of a bank
-
-```ruby
-```ruby
-bank = ZenginLite.bank("0001")
-branches = bank.branches
-
-branches.each do |branch|
-  puts "#{branch.code}: #{branch.name}"
-end
-```
-
-### Iterate through all banks (memory efficient)
-
-```ruby
-ZenginLite.each_bank do |bank|
-  puts "#{bank.code}: #{bank.name}"
-end
-```
+Online documentation is available at [rubydoc.info](https://rubydoc.info/gems/zengin_lite).
 
 ## Data Source
 
