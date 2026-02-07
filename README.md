@@ -12,6 +12,18 @@ Rebuilt from scratch with focus on:
 - 💾 Low memory footprint (1MB)
 - 🔍 Flexible query capabilities
 
+## Performance & Trade-offs
+
+This gem (`zengin-lite`) is designed as a lightweight alternative to `zengin-rb`.
+
+### When to use `zengin-lite`
+- **Web Applications / API Servers**: When you need to validate bank codes or look up branch names occasionally in user requests.
+- **Memory Constrained Environments**: Running on FaaS (AWS Lambda, etc.) or small containers where memory usage matters. `zengin-lite` keeps memory usage very low (~1MB) by querying SQLite on demand.
+
+### When to use `zengin-rb`
+- **Batch Processing / Heavy Loops**: If you need to iterate over thousands of banks/branches or perform bulk data processing.
+- **Maximum Performance**: `zengin-rb` loads all data into memory (Hash), offering microsecond-level access speed at the cost of higher memory usage (20MB+).
+
 ## Installation
 
 Add this line to your application's Gemfile:
