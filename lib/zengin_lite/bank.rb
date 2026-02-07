@@ -1,5 +1,19 @@
 module ZenginLite
   class Bank
+    class << self
+      def all
+        banks = {}
+        ZenginLite.each_bank do |bank|
+          banks[bank.code] = bank
+        end
+        banks
+      end
+
+      def [](code)
+        ZenginLite.bank(code)
+      end
+    end
+
     attr_reader :code, :name, :kana, :hira, :roma
     
     def initialize(code:, name:, kana:, hira:, roma:)

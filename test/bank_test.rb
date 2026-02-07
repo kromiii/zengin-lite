@@ -38,4 +38,27 @@ class BankTest < Minitest::Test
     assert_includes inspect_str, @bank.code
     assert_includes inspect_str, 'ZenginLite::Bank'
   end
+
+  def test_all
+    banks = ZenginLite::Bank.all
+    assert_instance_of Hash, banks
+    refute_empty banks
+    
+    # Check Mizuho Bank exists
+    assert_includes banks.keys, '0001'
+    mizuho = banks['0001']
+    assert_instance_of ZenginLite::Bank, mizuho
+    assert_equal 'みずほ', mizuho.name
+  end
+
+  def test_bracket_method
+    # Existing bank
+    bank = ZenginLite::Bank['0001']
+    assert_instance_of ZenginLite::Bank, bank
+    assert_equal '0001', bank.code
+    assert_equal 'みずほ', bank.name
+
+    # Non-existent bank
+    assert_nil ZenginLite::Bank['999999']
+  end
 end
