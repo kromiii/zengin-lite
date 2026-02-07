@@ -135,8 +135,8 @@ module ZenginLite
       updated_at = File.read("#{SOURCE_DIR}/updated_at").strip
       md5 = File.read("#{SOURCE_DIR}/md5").strip
       
-      db.execute('INSERT INTO metadata (key, value) VALUES (?, ?)', 'updated_at', updated_at)
-      db.execute('INSERT INTO metadata (key, value) VALUES (?, ?)', 'md5', md5)
+      db.execute('INSERT INTO metadata (key, value) VALUES (?, ?)', ['updated_at', updated_at])
+      db.execute('INSERT INTO metadata (key, value) VALUES (?, ?)', ['md5', md5])
       
       puts "  ✓ Metadata added (updated_at: #{updated_at})"
     end

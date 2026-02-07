@@ -24,7 +24,7 @@ module ZenginLite
       def find_bank(code:)
         connection.get_first_row(
           'SELECT code, name, kana, hira, roma FROM banks WHERE code = ?',
-          code
+          [code]
         )
       end
       
@@ -57,21 +57,21 @@ module ZenginLite
       def find_branch(bank_code:, branch_code:)
         connection.get_first_row(
           'SELECT code, bank_code, name, kana, hira, roma FROM branches WHERE bank_code = ? AND code = ?',
-          bank_code, branch_code
+          [bank_code, branch_code]
         )
       end
       
       def find_branches(bank_code:, limit: 100)
         connection.execute(
           'SELECT code, bank_code, name, kana, hira, roma FROM branches WHERE bank_code = ? LIMIT ?',
-          bank_code, limit
+          [bank_code, limit]
         )
       end
       
       def metadata(key)
         row = connection.get_first_row(
           'SELECT value FROM metadata WHERE key = ?',
-          key
+          [key]
         )
         row&.first
       end

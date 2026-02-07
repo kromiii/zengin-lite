@@ -5,6 +5,8 @@ require_relative 'zengin_lite/bank'
 require_relative 'zengin_lite/branch'
 
 module ZenginLite
+  DB_PATH = File.expand_path('../data/zengin.db', __dir__)
+
   class Error < StandardError; end
   
   class << self
