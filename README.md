@@ -3,8 +3,9 @@
 [![Gem Version](https://badge.fury.io/rb/zengin_lite.svg)](https://badge.fury.io/rb/zengin_lite)
 [![update](https://github.com/kromiii/zengin-lite/actions/workflows/update.yml/badge.svg)](https://github.com/kromiii/zengin-lite/actions/workflows/update.yml)
 
-A lightweight, modern Ruby implementation of Japanese bank and branch code database.
-The name "zengin-lite" comes from the fact that it uses **SQLite**.
+A lightweight implementation of [zengin-code/zengin-rb](https://github.com/zengin-code/zengin-rb).
+
+The name "zengin-lite" comes from the fact that it uses SQLite to store and query bank and branch data.
 
 Rebuilt from scratch with focus on:
 - ⚡️ Fast startup time (5-10ms)
