@@ -7,10 +7,9 @@ A lightweight, modern Ruby implementation of Japanese bank and branch code datab
 The name "zengin-lite" comes from the fact that it uses **SQLite**.
 
 Rebuilt from scratch with focus on:
-- ⚡️ Fast startup time (5-10ms vs 200-500ms)
-- 💾 Low memory footprint (1MB vs 10-15MB)
+- ⚡️ Fast startup time (5-10ms)
+- 💾 Low memory footprint (1MB)
 - 🔍 Flexible query capabilities
-- 📦 Compact size (~800KB)
 
 ## Installation
 
