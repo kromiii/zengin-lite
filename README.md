@@ -91,10 +91,6 @@ $ bundle exec yard doc
 $ open doc/index.html
 ```
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/YOUR_USERNAME/zengin-lite.
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
