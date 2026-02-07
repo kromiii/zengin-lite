@@ -49,8 +49,8 @@ class Updater
   end
 
   def data_changed?
-    # Check if data/zengin.db is modified
-    !(`git status --porcelain data/zengin.db`.empty?)
+    # Check if source-data submodule has changed
+    !(`git status --porcelain source-data`.empty?)
   end
 
   def configure_git
@@ -72,7 +72,7 @@ class Updater
   end
 
   def commit_changes(version)
-    system("git add data/zengin.db lib/zengin_lite/version.rb")
+    system("git add source-data lib/zengin_lite/version.rb")
     system("git commit -m 'Update data and bump version to #{version}'")
     # We do NOT push here because rake release will push.
   end
