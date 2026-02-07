@@ -30,8 +30,9 @@ module ZenginLite
     end
     
     def branches(limit: nil)
-      Database.find_branches(bank_code: code, limit: limit).map do |row|
-        Branch.from_row(row)
+      Database.find_branches(bank_code: code, limit: limit).each_with_object({}) do |row, hash|
+        branch = Branch.from_row(row)
+        hash[branch.code] = branch
       end
     end
     
