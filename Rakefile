@@ -8,3 +8,15 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
+
+namespace :db do
+  desc "Build the database from source data"
+  task :build do
+    ruby "scripts/build_database.rb"
+  end
+
+  desc "Verify the database integrity"
+  task :verify do
+    ruby "scripts/verify_database.rb"
+  end
+end

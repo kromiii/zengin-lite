@@ -63,7 +63,7 @@ module ZenginLite
       raise "Bank name missing" if bank.name.nil? || bank.name.empty?
       
       # Test bank search
-      results = ZenginLite.search_banks(name: '銀行', limit: 5)
+      results = ZenginLite.search_banks(name: '農協', limit: 5)
       raise "Bank search failed" if results.empty?
       
       # Test branch lookup
