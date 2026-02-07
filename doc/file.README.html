@@ -80,175 +80,103 @@
 
 <h2 id="label-Usage">Usage</h2>
 
-<h3 id="label-Find+bank+by+code">Find bank by code</h3>
-
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>zengin_lite</span><span class='tstring_end'>&#39;</span></span>
 
-<span class='id identifier rubyid_bank'>bank</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bank'><span class='object_link'><a href="ZenginLite.html#bank-class_method" title="ZenginLite.bank (method)">bank</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='comment'># =&gt; #&lt;ZenginLite::Bank code=&quot;0001&quot;, name=&quot;みずほ銀行&quot;, kana=&quot;ミズホ&quot;, hira=&quot;みずほ&quot;, roma=&quot;mizuho&quot;&gt;
+<span class='comment'># Find bank and branch
+</span><span class='id identifier rubyid_bank'>bank</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bank'><span class='object_link'><a href="ZenginLite.html#bank-class_method" title="ZenginLite.bank (method)">bank</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; #&lt;ZenginLite::Bank code=&quot;0001&quot; name=&quot;みずほ銀行&quot; ...&gt;
+</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_branch'>branch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>    <span class='comment'># =&gt; #&lt;ZenginLite::Branch code=&quot;001&quot; name=&quot;東京営業部&quot; ...&gt;
 </span>
-<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>  <span class='comment'># =&gt; &quot;みずほ銀行&quot;
-</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_kana'>kana</span>  <span class='comment'># =&gt; &quot;ミズホ&quot;
-</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_roma'>roma</span>  <span class='comment'># =&gt; &quot;mizuho&quot;
+<span class='comment'># Search banks
+</span><span class='id identifier rubyid_banks'>banks</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search_banks'><span class='object_link'><a href="ZenginLite.html#search_banks-class_method" title="ZenginLite.search_banks (method)">search_banks</a></span></span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>三井</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='comment'># Check existence (returns nil if not found)
+</span><span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bank'><span class='object_link'><a href="ZenginLite.html#bank-class_method" title="ZenginLite.bank (method)">bank</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>9999</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; nil
 </span></code></pre>
 
-<h3 id="label-Search+banks+by+name">Search banks by name</h3>
+<p>For more detailed API documentation, please refer to the YARD documentation.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_banks'>banks</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_search_banks'><span class='object_link'><a href="ZenginLite.html#search_banks-class_method" title="ZenginLite.search_banks (method)">search_banks</a></span></span><span class='lparen'>(</span><span class='label'>name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>三井</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='comment'># =&gt; [#&lt;ZenginLite::Bank ...&gt;, ...]
-</span>
-<span class='id identifier rubyid_banks'>banks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_bank'>bank</span><span class='op'>|</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"># Generate and view documentation locally
+$ bundle exec yard doc
+$ open doc/index.html
 </code></pre>
 
-<h3 id="label-Find+branch">Find branch</h3>
+<p>Online documentation is available at <a href="https://rubydoc.info/gems/zengin_lite">rubydoc.info</a>.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Get branch through bank
-</span><span class='id identifier rubyid_bank'>bank</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bank'><span class='object_link'><a href="ZenginLite.html#bank-class_method" title="ZenginLite.bank (method)">bank</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_branch'>branch</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='comment'># =&gt; #&lt;ZenginLite::Branch code=&quot;001&quot;, name=&quot;東京営業部&quot;, ...&gt;
-</span>
-<span class='comment'># Or directly
-</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_branch'><span class='object_link'><a href="ZenginLite.html#branch-class_method" title="ZenginLite.branch (method)">branch</a></span></span><span class='lparen'>(</span><span class='label'>bank_code:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0001</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>branch_code:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>001</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_branch'>branch</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>  <span class='comment'># =&gt; &quot;東京営業部&quot;
-</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_branch'>branch</span><span class='period'>.</span><span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>  <span class='comment'># =&gt; &quot;みずほ銀行&quot;
-</span></code></pre>
+<h2 id="label-Data+Source">Data Source</h2>
 
-<h3 id="label-Check+existence">Check existence</h3>
+<p>This gem uses data from <a href="https://github.com/zengin-code/source-data">zengin-code/source-data</a>, which is automatically updated daily.</p>
 
-<p>If a bank or branch does not exist, <code>nil</code> is returned.</p>
+<h2 id="label-Comparison+with+zengin_code">Comparison with zengin_code</h2>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Bank not found
-</span><span class='id identifier rubyid_bank'>bank</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bank'><span class='object_link'><a href="ZenginLite.html#bank-class_method" title="ZenginLite.bank (method)">bank</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>9999</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>if</span> <span class='id identifier rubyid_bank'>bank</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bank not found</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
+<table role="table">
+<thead>
+<tr>
+<th>Feature</th>
+<th>zengin_code</th>
+<th>zengin_lite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Startup time</td>
+<td>200-500ms</td>
+<td>5-10ms</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>10-15MB</td>
+<td>&lt;1MB</td>
+</tr>
+<tr>
+<td>Gem size</td>
+<td>788KB</td>
+<td>~800KB</td>
+</tr>
+<tr>
+<td>Search capability</td>
+<td>Basic</td>
+<td>Flexible SQL queries</td>
+</tr>
+<tr>
+<td>Data loading</td>
+<td>Eager (all at once)</td>
+<td>Lazy (on demand)</td>
+</tr>
+</tbody>
+</table>
 
-<span class='comment'># Branch not found
-</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="ZenginLite.html" title="ZenginLite (module)">ZenginLite</a></span></span><span class='period'>.</span><span class='id identifier rubyid_branch'><span class='object_link'><a href="ZenginLite.html#branch-class_method" title="ZenginLite.branch (method)">branch</a></span></span><span class='lparen'>(</span><span class='label'>bank_code:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0001</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>branch_code:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>999</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>if</span> <span class='id identifier rubyid_branch'>branch</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Branch not found</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
+<h2 id="label-Development">Development</h2>
+
+<pre class="code ruby"><code class="ruby"># Clone with submodule
+$ git clone --recursive https://github.com/YOUR_USERNAME/zengin-lite.git
+$ cd zengin-lite
+$ bundle install
+
+# Update source data and build database
+$ git submodule update --remote
+$ bundle exec rake db:build
+
+# Run tests
+$ bundle exec rake test
+
+# Verify database integrity
+$ bundle exec rake db:verify
+
+# Build and install locally (database will be built automatically)
+$ bundle exec rake install
+
+# Generate documentation
+$ bundle exec yard doc
+$ open doc/index.html
 </code></pre>
-
-<h3 id="label-List+all+branches+of+a+bank">List all branches of a bank</h3>
-
-<p><code>ruby </code>ruby bank = ZenginLite.bank(“0001”) branches = bank.branches</p>
-
-<p>branches.each do |branch| puts “#branchbranch.code: #branchbranch.name” end</p>
-
-<pre class="code ruby"><code class="ruby">
-<span class='comment'>### Iterate through all banks (memory efficient)
-</span></code></pre>
-
-<p>ruby ZenginLite.each_bank do |bank| puts “#bankbank.code: #bankbank.name” end</p>
-
-<pre class="code ruby"><code class="ruby">
-## Data Source
-
-This gem uses data from [zengin-code/source-data](https://github.com/zengin-code/source-data), which is automatically updated daily.
-
-## Comparison with zengin_code
-
-| Feature | zengin_code | zengin_lite |
-|---------|-------------|-------------|
-| Startup time | 200-500ms | 5-10ms |
-| Memory usage | 10-15MB | &lt;1MB |
-| Gem size | 788KB | ~800KB |
-| Search capability | Basic | Flexible SQL queries |
-| Data loading | Eager (all at once) | Lazy (on demand) |
-
-### Compatibility with zengin-rb
-
-`zengin-lite` provides compatibility methods for `zengin-rb` users:
-
-- `ZenginLite::Bank.all`: Returns a Hash of all banks (same as `ZenginCode::Bank.all`).
-- `ZenginLite::Bank[&#39;0001&#39;]`: Alias for `ZenginLite.bank(&#39;0001&#39;)`.
-
-Note: `ZenginLite::Bank#branches` returns an Array of all branches by default (limit: nil), effectively similar to `zengin-rb`.
-
-## Development
-</code></pre>
-
-<p>bash</p>
-
-<h1 id="label-Clone+with+submodule">Clone with submodule</h1>
-
-<p>$ git clone –recursive <a href="https://github.com/YOUR_USERNAME/zengin-lite.git">github.com/YOUR_USERNAME/zengin-lite.git</a> $ cd zengin-lite $ bundle install</p>
-
-<h1 id="label-Update+source+data+and+build+database">Update source data and build database</h1>
-
-<p>$ git submodule update –remote $ bundle exec rake db:build</p>
-
-<h1 id="label-Run+tests">Run tests</h1>
-
-<p>$ bundle exec rake test</p>
-
-<h1 id="label-Verify+database+integrity">Verify database integrity</h1>
-
-<p>$ bundle exec rake db:verify</p>
-
-<h1 id="label-Build+and+install+locally+-28database+will+be+built+automatically-29">Build and install locally (database will be built automatically)</h1>
-
-<p>$ bundle exec rake install</p>
-
-<h1 id="label-Generate+documentation">Generate documentation</h1>
-
-<p>$ bundle exec yard doc $ open doc/index.html</p>
-
-<p>“‘</p>
-
-<h2 id="label-Contributing">Contributing</h2>
-
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/YOUR_USERNAME/zengin-lite">github.com/YOUR_USERNAME/zengin-lite</a>.</p>
 
 <h2 id="label-License">License</h2>
 
 <p>The gem is available as open source under the terms of the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
-
-<h2 id="label-Release+Flow">Release Flow</h2>
-
-<p>This gem uses <a href="https://github.com/kromiii/zengin-lite/actions">GitHub Actions</a> to automate the release process.</p>
-
-<h3 id="label-Automatic+Updates">Automatic Updates</h3>
-
-<p>The workflow runs automatically <strong>every day at 9:00 JST</strong> to check for updates in the source data (<a href="https://github.com/zengin-code/source-data">zengin-code/source-data</a>).</p>
-<ol><li>
-<p><strong>Check for Updates</strong>: It fetches the latest data from <code>source-data</code> and rebuilds the SQLite database.</p>
-</li><li>
-<p><strong>Release</strong>:</p>
-</li><li>
-<p>If changes are detected in <code>data/zengin.db</code>, the patch version is automatically incremented (e.g., <code>0.1.0</code> -&gt; <code>0.1.1</code>).</p>
-</li><li>
-<p>A new version is released to RubyGems.</p>
-</li></ol>
-
-<h3 id="label-Manual+Releases">Manual Releases</h3>
-
-<p>You can also trigger a release by pushing to the <code>main</code> branch.</p>
-<ol><li>
-<p><strong>Update Code</strong>: Make changes to the code (e.g., <code>lib/</code>) and push to <code>main</code>.</p>
-</li><li>
-<p><strong>Release</strong>:</p>
-</li><li>
-<p>The workflow checks if the current version (in <code>version.rb</code>) is already tagged.</p>
-</li><li>
-<p>If <strong>NOT tagged</strong>, it will be released as a new version.</p>
-</li><li>
-<p>If <strong>already tagged</strong>, no action is taken.</p>
-</li></ol>
-
-<h3 id="label-Prerequisites+for+Release">Prerequisites for Release</h3>
-
-<p>To enable automatic releases, the following secret must be set in the repository settings:</p>
-<ul><li>
-<p><code>RUBYGEMS_API_KEY</code>: An API key from RubyGems.org with push permissions.</p>
-</li></ul>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Feb  7 19:19:05 2026 by
+  Generated on Sat Feb  7 19:33:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-3.4.6).
 </div>

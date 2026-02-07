@@ -62,7 +62,7 @@
       <div id="content"><h1>Class: ZenginLite::Database
   
   
-  
+  <span class="private note title">Private</span>
 </h1>
 <div class="box_info">
   
@@ -99,7 +99,20 @@
   
 </div>
 
+<div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This class is part of a private API.</strong>
+  You should avoid using this class if possible, as it may be removed or be changed in the future.
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -128,7 +141,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -150,7 +163,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -172,7 +185,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -194,7 +207,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'>
@@ -218,7 +231,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -240,7 +253,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -262,7 +275,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -284,7 +297,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -306,7 +319,7 @@
   
   
   
-  
+  <span class="private note title">private</span>
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -332,19 +345,32 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-18
 19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_close'>close</span>
   <span class='ivar'>@connection</span><span class='op'>&amp;.</span><span class='id identifier rubyid_close'>close</span>
@@ -364,13 +390,25 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-6
 7
 8
 9
@@ -380,10 +418,11 @@
 13
 14
 15
-16</pre>
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_connection'>connection</span>
   <span class='ivar'>@connection</span> <span class='op'>||=</span> <span class='kw'>begin</span>
@@ -410,20 +449,33 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-51
 52
 53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_each_bank'>each_bank</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SELECT code, name, kana, hira, roma FROM banks</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_row'>row</span><span class='op'>|</span>
@@ -446,7 +498,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
 <p>Query methods</p>
 
 
@@ -461,15 +517,15 @@
       <pre class="lines">
 
 
-24
 25
 26
 27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_bank'>find_bank</span><span class='lparen'>(</span><span class='label'>code:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_get_first_row'>get_first_row</span><span class='lparen'>(</span>
@@ -491,21 +547,34 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-57
 58
 59
 60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_branch'>find_branch</span><span class='lparen'>(</span><span class='label'>bank_code:</span><span class='comma'>,</span> <span class='label'>branch_code:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_get_first_row'>get_first_row</span><span class='lparen'>(</span>
@@ -527,22 +596,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-64
 65
 66
 67
 68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_find_branches'>find_branches</span><span class='lparen'>(</span><span class='label'>bank_code:</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='int'>100</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_limit'>limit</span> <span class='op'>||=</span> <span class='op'>-</span><span class='int'>1</span>
@@ -565,22 +647,35 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-72
 73
 74
 75
 76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metadata'>metadata</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_row'>row</span> <span class='op'>=</span> <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_get_first_row'>get_first_row</span><span class='lparen'>(</span>
@@ -603,13 +698,25 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-31
 32
 33
 34
@@ -627,10 +734,11 @@
 46
 47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_search_banks'>search_banks</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>kana:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>limit:</span> <span class='int'>10</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_sql'>sql</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SELECT code, name, kana, hira, roma FROM banks WHERE 1=1</span><span class='tstring_end'>&#39;</span></span>
@@ -665,23 +773,36 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-80
 81
 82
 83
 84
 85
 86
-87</pre>
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/zengin_lite/database.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stats'>stats</span>
   <span class='lbrace'>{</span>
@@ -701,7 +822,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Feb  7 19:19:05 2026 by
+  Generated on Sat Feb  7 19:33:57 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.38 (ruby-3.4.6).
 </div>

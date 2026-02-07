@@ -1,6 +1,7 @@
 require 'sqlite3'
 
 module ZenginLite
+  # @api private
   class Database
     class << self
       def connection
@@ -86,5 +87,5 @@ module ZenginLite
         }
       end
     end
-  end
+  end  
 end
