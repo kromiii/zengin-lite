@@ -69,7 +69,7 @@ This gem uses data from [zengin-code/source-data](https://github.com/zengin-code
 
 ```bash
 # Clone with submodule
-$ git clone --recursive https://github.com/YOUR_USERNAME/zengin-lite.git
+$ git clone --recursive https://github.com/kromiii/zengin-lite.git
 $ cd zengin-lite
 $ bundle install
 
