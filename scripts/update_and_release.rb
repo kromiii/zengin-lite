@@ -4,36 +4,37 @@ require_relative '../lib/zengin_lite/version'
 
 class Updater
   def run
+    configure_git
+
     update_submodule
     build_database
     
-    unless data_changed?
-      puts "No data changes detected. Exiting."
-      return
+    if data_changed?
+      puts "Data changes detected. Starting release process..."
+      new_version = bump_version
+      puts "Bumped version to #{new_version}"
+      commit_changes(new_version)
+      release_gem
+    elsif !version_tagged?
+      puts "Version #{current_version} is not tagged. Releasing..."
+      release_gem
+    else
+      puts "No data changes detected and version #{current_version} is already tagged. Exiting."
     end
-    
-    puts "Data changes detected. Starting release process..."
-    
-    configure_git
-    new_version = bump_version
-    
-    puts "Bumped version to #{new_version}"
-    
-    commit_changes(new_version)
-    
+  end
+
+  private
+
+  def current_version
+    ZenginLite::VERSION
+  end
+
+  def version_tagged?
+    system("git rev-parse v#{current_version} >/dev/null 2>&1")
+  end
+
+  def release_gem
     puts "Releasing gem..."
-    # Rely on Bundler's rake release, but we need to handle the git push and tag explicitly
-    # if we want to customize the message or flow, but rake release does it all.
-    # However, running rake release inside a script that is already running inside a job...
-    # Let's try to use standard commands for better control in CI.
-    
-    # Actually, verify if we can just use `gem push`.
-    # `rake release` is good because it safeguards.
-    
-    # We'll use system commands to run rake release.
-    # But wait, rake release tries to push to git.
-    # We verified permissions in workflow.
-    
     system("bundle exec rake release") or raise "Release failed"
   end
 
