@@ -42,15 +42,7 @@ banks = ZenginLite.search_banks(name: "三井")
 ZenginLite.bank("9999") # => nil
 ```
 
-For more detailed API documentation, please refer to the YARD documentation.
-
-```bash
-# Generate and view documentation locally
-$ bundle exec yard doc
-$ open doc/index.html
-```
-
-Online documentation is available at [rubydoc.info](https://rubydoc.info/gems/zengin_lite).
+For more detailed API documentation, please refer to the [YARD documentation](https://rubydoc.info/gems/zengin_lite).
 
 ## Data Source
 
