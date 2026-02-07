@@ -25,9 +25,9 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
 
     - name: Build Database
-      run: ruby scripts/build_database.rb
+      run: bundle exec ruby scripts/build_database.rb
 
     - name: Run Tests
       run: |
-        ruby -Ilib:test test/bank_test.rb
-        ruby -Ilib:test test/branch_test.rb
+        bundle exec ruby -Ilib:test test/bank_test.rb
+        bundle exec ruby -Ilib:test test/branch_test.rb
