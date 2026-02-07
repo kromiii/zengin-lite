@@ -62,6 +62,7 @@ module ZenginLite
       end
       
       def find_branches(bank_code:, limit: 100)
+        limit ||= -1
         connection.execute(
           'SELECT code, bank_code, name, kana, hira, roma FROM branches WHERE bank_code = ? LIMIT ?',
           [bank_code, limit]

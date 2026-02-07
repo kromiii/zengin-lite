@@ -18,9 +18,17 @@ class BankTest < Minitest::Test
   end
   
   def test_branches_list
-    branches = @bank.branches(limit: 10)
+    # Default limit is nil (all branches)
+    branches = @bank.branches
     assert_kind_of Array, branches
-    branches.each do |branch|
+    # Mizuho has many branches, should apply limit if provided
+    assert_operator branches.size, :>, 100
+
+    # With limit
+    branches_limited = @bank.branches(limit: 10)
+    assert_equal 10, branches_limited.size
+    
+    branches.first(5).each do |branch|
       assert_instance_of ZenginLite::Branch, branch
       assert_equal @bank.code, branch.bank_code
     end

@@ -68,8 +68,9 @@ puts branch.bank.name  # => "みずほ銀行"
 ### List all branches of a bank
 
 ```ruby
+```ruby
 bank = ZenginLite.bank("0001")
-branches = bank.branches(limit: 100)
+branches = bank.branches
 
 branches.each do |branch|
   puts "#{branch.code}: #{branch.name}"
@@ -105,7 +106,7 @@ This gem uses data from [zengin-code/source-data](https://github.com/zengin-code
 - `ZenginLite::Bank.all`: Returns a Hash of all banks (same as `ZenginCode::Bank.all`).
 - `ZenginLite::Bank['0001']`: Alias for `ZenginLite.bank('0001')`.
 
-Note: `ZenginLite::Bank#branches` returns an Array with limit, unlike `zengin-rb` which returns a Hash of all branches. This is design choice for performance.
+Note: `ZenginLite::Bank#branches` returns an Array of all branches by default (limit: nil), effectively similar to `zengin-rb`.
 
 ## Development
 

@@ -29,7 +29,7 @@ module ZenginLite
       Branch.from_row(row) if row
     end
     
-    def branches(limit: 100)
+    def branches(limit: nil)
       Database.find_branches(bank_code: code, limit: limit).map do |row|
         Branch.from_row(row)
       end
