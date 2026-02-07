@@ -1,0 +1,5 @@
+lib/zengin_lite.rb d518a122e134675475192bccdac2427659c196e3
+lib/zengin_lite/bank.rb 99e97a39dd8bae1e33df304fcc0bba2781a96ad1
+lib/zengin_lite/branch.rb 4ee0643178c94aa1d3b6e20c872ac08e355f5798
+lib/zengin_lite/version.rb 0e597aca7d715adc1e9682612636f2a5dac0140b
+lib/zengin_lite/database.rb 168180862190bc9ca1245c6107048b655b0e6af0

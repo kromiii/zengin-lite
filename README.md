@@ -65,6 +65,24 @@ puts branch.name  # => "東京営業部"
 puts branch.bank.name  # => "みずほ銀行"
 ```
 
+### Check existence
+
+If a bank or branch does not exist, `nil` is returned.
+
+```ruby
+# Bank not found
+bank = ZenginLite.bank("9999")
+if bank.nil?
+  puts "Bank not found"
+end
+
+# Branch not found
+branch = ZenginLite.branch(bank_code: "0001", branch_code: "999")
+if branch.nil?
+  puts "Branch not found"
+end
+```
+
 ### List all branches of a bank
 
 ```ruby
@@ -128,6 +146,10 @@ $ bundle exec rake db:verify
 
 # Build and install locally (database will be built automatically)
 $ bundle exec rake install
+
+# Generate documentation
+$ bundle exec yard doc
+$ open doc/index.html
 ```
 
 ## Contributing
