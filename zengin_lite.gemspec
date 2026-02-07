@@ -3,14 +3,14 @@ require_relative 'lib/zengin_lite/version'
 Gem::Specification.new do |spec|
   spec.name          = 'zengin_lite'
   spec.version       = ZenginLite::VERSION
-  spec.authors       = ['YOUR_NAME']
-  spec.email         = ['your.email@example.com']
+  spec.authors       = ['Hiroyuki Kuromiya']
+  spec.email         = ['contact@kromiii.info']
 
   spec.summary       = 'Lightweight Japanese bank and branch code database'
   spec.description   = 'A modern, fast, and memory-efficient implementation of Japanese bank code (Zengin Code) database with flexible query capabilities'
-  spec.homepage      = 'https://github.com/YOUR_USERNAME/zengin-lite'
+  spec.homepage      = 'https://github.com/kromiii/zengin-lite'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
@@ -31,7 +31,8 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # Runtime dependencies (none - sqlite3 is part of Ruby standard library since 3.0)
+  # Runtime dependencies
+  spec.add_runtime_dependency 'sqlite3', '>= 1.4'
   
   # Development dependencies
   spec.add_development_dependency 'bundler', '~> 2.0'
