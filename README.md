@@ -1,7 +1,7 @@
 # ZenginLite
 
 [![Gem Version](https://badge.fury.io/rb/zengin_lite.svg)](https://badge.fury.io/rb/zengin_lite)
-[![update](https://github.com/YOUR_USERNAME/zengin-lite/actions/workflows/update.yml/badge.svg)](https://github.com/YOUR_USERNAME/zengin-lite/actions/workflows/update.yml)
+[![update](https://github.com/kromiii/zengin-lite/actions/workflows/update.yml/badge.svg)](https://github.com/kromiii/zengin-lite/actions/workflows/update.yml)
 
 A lightweight, modern Ruby implementation of Japanese bank and branch code database.
 The name "zengin-lite" comes from the fact that it uses **SQLite**.
