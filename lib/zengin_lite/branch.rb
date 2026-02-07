@@ -30,6 +30,7 @@ module ZenginLite
       "#<#{self.class.name} code=#{code.inspect}, bank_code=#{bank_code.inspect}, name=#{name.inspect}, kana=#{kana.inspect}>"
     end
     
+    # @api private
     def self.from_row(row)
       return nil unless row
       
