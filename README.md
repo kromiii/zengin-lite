@@ -124,3 +124,29 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/YOUR_U
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Release Flow
+
+This gem uses [GitHub Actions](https://github.com/kromiii/zengin-lite/actions) to automate the release process.
+
+### Automatic Updates
+The workflow runs automatically **every day at 9:00 JST** to check for updates in the source data ([zengin-code/source-data](https://github.com/zengin-code/source-data)).
+
+1. **Check for Updates**: It fetches the latest data from `source-data` and rebuilds the SQLite database.
+2. **Release**: 
+   - If changes are detected in `data/zengin.db`, the patch version is automatically incremented (e.g., `0.1.0` -> `0.1.1`).
+   - A new version is released to RubyGems.
+
+### Manual Releases
+You can also trigger a release by pushing to the `main` branch.
+
+1. **Update Code**: Make changes to the code (e.g., `lib/`) and push to `main`.
+2. **Release**:
+   - The workflow checks if the current version (in `version.rb`) is already tagged.
+   - If **NOT tagged**, it will be released as a new version.
+   - If **already tagged**, no action is taken.
+
+### Prerequisites for Release
+To enable automatic releases, the following secret must be set in the repository settings:
+
+- `RUBYGEMS_API_KEY`: An API key from RubyGems.org with push permissions.
