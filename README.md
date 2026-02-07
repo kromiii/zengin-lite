@@ -56,16 +56,6 @@ Online documentation is available at [rubydoc.info](https://rubydoc.info/gems/ze
 
 This gem uses data from [zengin-code/source-data](https://github.com/zengin-code/source-data), which is automatically updated daily.
 
-## Comparison with zengin_code
-
-| Feature | zengin_code | zengin_lite |
-|---------|-------------|-------------|
-| Startup time | 200-500ms | 5-10ms |
-| Memory usage | 10-15MB | <1MB |
-| Gem size | 788KB | ~800KB |
-| Search capability | Basic | Flexible SQL queries |
-| Data loading | Eager (all at once) | Lazy (on demand) |
-
 ## Development
 
 ```bash
