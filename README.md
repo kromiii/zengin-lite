@@ -4,6 +4,7 @@
 [![update](https://github.com/YOUR_USERNAME/zengin-lite/actions/workflows/update.yml/badge.svg)](https://github.com/YOUR_USERNAME/zengin-lite/actions/workflows/update.yml)
 
 A lightweight, modern Ruby implementation of Japanese bank and branch code database.
+The name "zengin-lite" comes from the fact that it uses **SQLite**.
 
 Rebuilt from scratch with focus on:
 - ⚡️ Fast startup time (5-10ms vs 200-500ms)
