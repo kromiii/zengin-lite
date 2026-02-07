@@ -115,6 +115,9 @@ $ bundle exec rake test
 
 # Verify database integrity
 $ bundle exec rake db:verify
+
+# Build and install locally (database will be built automatically)
+$ bundle exec rake install
 ```
 
 ## Contributing

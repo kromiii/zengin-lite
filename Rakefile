@@ -20,3 +20,5 @@ namespace :db do
     ruby "scripts/verify_database.rb"
   end
 end
+
+task :build => 'db:build'

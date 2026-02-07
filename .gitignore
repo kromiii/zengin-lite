@@ -1,3 +1,6 @@
 /data/zengin.db
 /.bundle
 /vendor/bundle
+
+/pkg/
+/checksums/
