@@ -30,6 +30,19 @@ class Updater
   end
 
   def version_tagged?
+    # Check if this version already exists on RubyGems
+    require 'net/http'
+    require 'json'
+    
+    uri = URI("https://rubygems.org/api/v1/versions/zengin_lite.json")
+    response = Net::HTTP.get(uri)
+    versions = JSON.parse(response)
+    
+    versions.any? { |v| v['number'] == current_version }
+  rescue => e
+    puts "Warning: Could not check RubyGems versions: #{e.message}"
+    # Fall back to checking git tags if RubyGems check fails
+    system("git fetch --tags >/dev/null 2>&1")
     system("git rev-parse v#{current_version} >/dev/null 2>&1")
   end
 
